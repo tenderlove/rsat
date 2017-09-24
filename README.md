@@ -1,4 +1,4 @@
-# rsat
+# RSAT
 
 * https://github.com/tenderlove/rsat
 
