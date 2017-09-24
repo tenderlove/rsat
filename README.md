@@ -1,26 +1,34 @@
 # rsat
 
-* FIX (url)
+* https://github.com/tenderlove/rsat
 
 ## DESCRIPTION:
 
-FIX (describe your package)
-
-## FEATURES/PROBLEMS:
-
-* FIX (list of features or problems)
+Pure Ruby SAT solver.  Based on simple-sat in Python.
 
 ## SYNOPSIS:
 
-  FIX (code sample of usage)
+Say "A" depends on "B" and "C".  We can encode it as a SAT problem like this:
 
-## REQUIREMENTS:
+```
+A
+~A B
+~A C
+```
 
-* FIX (list of requirements)
+In other words, this problem depends on "A" and "not A or B" and "not A or C".
+You can add the problem to the SAT solver and solve it as follows:
 
-## INSTALL:
+```ruby
+s = RSAT.new
+s.parse_and_add_clause "A"
+s.parse_and_add_clause "~A B"
+s.parse_and_add_clause "~A C"
 
-* FIX (sudo gem install, anything else)
+s.each_solution do |assignment|
+  p :solution => assignment
+end
+```
 
 ## LICENSE:
 

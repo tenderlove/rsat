@@ -19,7 +19,7 @@ class TestRSAT < Minitest::Test
     s.parse_and_add_clause "~A C"
 
     s.each_solution do |assignment|
-      p :OMGOMGOMGMO => assignment
+      assert_equal "A ~B C", assignment
     end
   end
 
@@ -30,7 +30,7 @@ class TestRSAT < Minitest::Test
     s.parse_and_add_clause "~A C"
 
     s.each_solution do |assignment|
-      p :OMGOMGOMGMO => assignment
+      assert_equal "A B C", assignment
     end
   end
 end
